@@ -5,6 +5,7 @@
   </div>-->
   <div id="app">
     <img src="./assets/rotate.jpeg" class="rotateImg"/>
+    <img src="./assets/指针.png" class="rotateImg1"/>
   </div>
   <!--<div>-->
     <!--<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;">-->
@@ -43,6 +44,14 @@ export default {
 }
 .rotateImg {
   width: 400px;
+  position: relative;
+  z-index: -1;
+}
+.rotateImg1 {
+  position: relative;
+  top: -280px;
+  left: 150px;
+  width: 100px;
   animation:circleRoate 10s ;
   animation-timing-function:linear;
 }
