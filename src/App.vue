@@ -4,7 +4,7 @@
     <router-view/>
   </div>-->
   <div id="app">
-      <div :class="rotate? 'circle':'circle_chg'" @click="start"></div>
+    <img src="./assets/rotate.jpeg" class="rotateImg"/>
   </div>
   <!--<div>-->
     <!--<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;">-->
@@ -16,16 +16,7 @@
 <script>
 export default {
   name: 'App',
-  data () {
-    return {
-      rotate: false
-    }
-  },
   methods: {
-    start () {
-      this.rotate = !this.rotate
-      console.log(this.rotate)
-    }
   }
   // mounted () {
   //   var c = document.getElementById('myCanvas')
@@ -46,35 +37,18 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }*/
-  .circle {
-    width: 350px;
-    height: 350px;
-    border-radius: 175px;
-    top: 100px;
-    left:-175px;
-    margin-left:50%;
-    background-color:red;
-    position:absolute;
-    animation:changDeg 2s linear 0.2s infinite;
-  }
-  .circle_chg {
-    width: 350px;
-    height: 350px;
-    border-radius: 175px;
-    top: 100px;
-    left:-175px;
-    margin-left:50%;
-    background-color:yellow;
-    position:absolute;
-    animation:changDeg 2s linear 0.2s infinite;
-  }
-  //定义动画
-  @keyframes change changeDeg{
-    0% {
-      transform: rotate(0deg)
-    }
-   100% {
-     transform:rotate(60deg)
-   }
-                    }
+*{
+  margin: 0;
+  padding: 0;
+}
+.rotateImg {
+  width: 400px;
+  animation:circleRoate 10s ;
+  animation-timing-function:linear;
+}
+@keyframes circleRoate{
+  from{transform: rotate(0deg) infinite;}
+  to{transform: rotate(360deg);}
+}
+
 </style>
