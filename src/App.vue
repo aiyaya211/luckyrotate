@@ -4,9 +4,9 @@
     <router-view/>
   </div>-->
   <div id="app">
-    <img src="./assets/rotate.jpeg" class="rotateImg"/>
+    <img src="./assets/rotate.jpeg" class="rotateImg" :style="{transform:rotate_angle_pointer,transition:rotate_transition_pointer}"/>
     <!--<img src="./assets/指针.png" :class="{'rotateImg1':flag1, 'rotateImg2':flag2, 'rotateImg3':flag}" @click="start"/>-->
-    <img src="./assets/指针.png" :style="{transform:rotate_angle_pointer,transition:rotate_transition_pointer}" @click="start" class="rotateImg3">
+    <img src="./assets/指针.png"  class="rotateImg3" @click="start">
   </div>
   <!--<div>-->
     <!--<canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;">-->
@@ -20,17 +20,25 @@ export default {
   name: 'App',
   data: function () {
     return {
-      flag: false,
-      flag1: false,
-      flag2: true,
-      rotate_angle_pointer: 'rotate(7deg)',
+      flag: 0,
+      times: 0,
+      rotate_angle_pointer: 'rotate(0deg)',
       rotate_transition_pointer: 'transform 2s ease-in-out'
     }
   },
   methods: {
     start: function () {
-      this.rotate_angle_pointer = `rotate(${Math.random() * 360}deg)`
-      console.log(this.rotate_angle_pointer)
+      // this.rotate_angle_pointer = `rotate(0deg)`
+      if (this.flag === 0) {
+        console.log(this.flag)
+        this.rotate_angle_pointer = `rotate(${2 * 360 + Math.random() * 360}deg)`
+        console.log(this.rotate_angle_pointer)
+        this.times++
+      }
+      if (this.times > 5) {
+        alert('您今天的抽奖次数已经用完')
+        this.flag = 1
+      }
     }
   }
   // mounted () {
